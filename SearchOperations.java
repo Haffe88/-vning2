@@ -13,7 +13,7 @@ interface SearchOperations {
 	 *
 	 * @return antalet unika artister (long)
 	 */
-	long numberOfArtists();
+	// long numberOfArtists();
 
 	/**
 	 * Returnerar antalet genrer
@@ -23,7 +23,7 @@ interface SearchOperations {
 	 *
 	 * @return antalet genrer (long)
 	 */
-	long numberOfGenres();
+	// long numberOfGenres();
 
 	/**
 	 * Returnerar antalet unika titlar
@@ -33,7 +33,7 @@ interface SearchOperations {
 	 *
 	 * @return antalet unika titlar (long)
 	 */
-	long numberOfTitles();
+	// long numberOfTitles();
 
 
 	/**
@@ -46,7 +46,7 @@ interface SearchOperations {
 	 * @param name Artistens namn
 	 * @return true om artisten finns, false om inte
 	 */
-	boolean doesArtistExist(String name);
+	// boolean doesArtistExist(String name);
 
 	/**
 	 * Ger en omodifierbar samling med genrer.
@@ -56,7 +56,7 @@ interface SearchOperations {
 	 *
 	 * @return en omodifierbar samling med genrer
 	 */
-	Collection<String> getGenres();
+	// Collection<String> getGenres();
 
 	/**
 	 * Hämtar inspelning med den sökta titeln.
@@ -68,7 +68,7 @@ interface SearchOperations {
 	 * @param title Inspelningens titel
 	 * @return ett Recodring-objekt med den sökta inspelningen om den hittades, null annars
 	 */
-	Recording getRecordingByName(String title);
+	// Recording getRecordingByName(String title);
 
 	/**
 	 * Hämtar en omodifierbar samling med inspelningar från och med det angivna året.
@@ -79,7 +79,7 @@ interface SearchOperations {
 	 * @param year året som sökningen startar från (och inkluderar)
 	 * @return en omodifierbar samling med inspelningar
 	 */
-	Collection<Recording> getRecordingsAfter(int year);
+	// Collection<Recording> getRecordingsAfter(int year);
 
 	/**
 	 * Hämtar en omodifierbar samling med inspelningar av artisten
@@ -91,7 +91,7 @@ interface SearchOperations {
 	 * @param artist den sökta artisten
 	 * @return ett omodifierbar samling med inspelningar
 	 */
-	SortedSet<Recording> getRecordingsByArtistOrderedByYearAsc(String artist);
+	// SortedSet<Recording> getRecordingsByArtistOrderedByYearAsc(String artist);
 
 	/**
 	 * Hämtar en omodifierbar samling med inspelningar i genren.
@@ -102,7 +102,7 @@ interface SearchOperations {
 	 * @param genre den sökta genren
 	 * @return ett omodifierbar samling med inspelningar
 	 */
-	Collection<Recording> getRecordingsByGenre(String genre);
+	// Collection<Recording> getRecordingsByGenre(String genre);
 
 	/**
 	 * Hämtar en omodifierbar samling med inspelningar i genren gjorda
@@ -116,7 +116,7 @@ interface SearchOperations {
 	 * @param yearTo   sista året i intervallet
 	 * @return en omodifierbar samling
 	 */
-	Collection<Recording> getRecordingsByGenreAndYear(String genre, int yearFrom, int yearTo);
+	// Collection<Recording> getRecordingsByGenreAndYear(String genre, int yearFrom, int yearTo);
 
 	/**
 	 * Tar emot en samling och returnerar en ny samling
@@ -125,7 +125,7 @@ interface SearchOperations {
 	 * @param offered En samling med inspelningar
 	 * @return en omodifierbar samling med de inspelningar som inte redan finns
 	 */
-	Collection<Recording> offerHasNewRecordings(Collection<Recording> offered);
+	// Collection<Recording> offerHasNewRecordings(Collection<Recording> offered);
 
 	/**
 	 * Hämtar en omodifierbar samling med inspelningar innan det angivna året.
@@ -150,7 +150,7 @@ interface SearchOperations {
 	 * @param artist den sökta artisten
 	 * @return ett omodifierbar samling med inspelningar sorterade på titel
 	 */
-	default SortedSet<Recording> optionalGetRecordingsByArtistOrderedByTitleAsc(String artist) {
+	 default SortedSet<Recording> optionalGetRecordingsByArtistOrderedByTitleAsc(String artist) {
 		return null;
 	}
 
@@ -163,7 +163,7 @@ interface SearchOperations {
 	 * @param year det sökta året
 	 * @return en omodifierbar samling med inspelningar
 	 */
-	default Collection<Recording> optionalGetRecordingsFrom(int year) {
+	 default Collection<Recording> optionalGetRecordingsFrom(int year) {
 		return null;
 	}
 }

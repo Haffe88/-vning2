@@ -1,14 +1,15 @@
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.SortedSet;
+import java.util.Set;
 
-//Julia kommentar 26-04-08: la till så den implementerar interfacet SearchOperations och de publika metoder (och body) som inte är default i denna som ska implementeras här
 
 public class Searcher implements SearchOperations{
 
-	public Searcher(Collection<Recording> data) {
-		
-		Collection<Recording> recordings = data;
+	private Collection<Recording> recordings;
 
+	public Searcher(Collection<Recording> data) {
+		this.recordings = data;
 	}
 
 		/**
@@ -22,7 +23,15 @@ public class Searcher implements SearchOperations{
 	 */
 	public long numberOfArtists(){
 
-	}
+		Set<String> unikaArtister = new HashSet<>();
+			for (Recording r: recordings){
+				unikaArtister.add(r.getArtist());
+			}
+			long antal = unikaArtister.size();
+
+			return antal;
+		}
+
 
 	/**
 	 * Returnerar antalet genrer
@@ -32,7 +41,7 @@ public class Searcher implements SearchOperations{
 	 *
 	 * @return antalet genrer (long)
 	 */
-	public long numberOfGenres(){
+	//public long numberOfGenres(){
 
 	}
 
@@ -44,9 +53,9 @@ public class Searcher implements SearchOperations{
 	 *
 	 * @return antalet unika titlar (long)
 	 */
-	public long numberOfTitles(){
+	//public long numberOfTitles(){
 
-	}
+	//}
 
 
 	/**
@@ -59,9 +68,9 @@ public class Searcher implements SearchOperations{
 	 * @param name Artistens namn
 	 * @return true om artisten finns, false om inte
 	 */
-	public boolean doesArtistExist(String name){
+	// public boolean doesArtistExist(String name){
 
-	}
+	// }
 
 	/**
 	 * Ger en omodifierbar samling med genrer.
@@ -71,9 +80,9 @@ public class Searcher implements SearchOperations{
 	 *
 	 * @return en omodifierbar samling med genrer
 	 */
-	public Collection<String> getGenres(){
+	// public Collection<String> getGenres(){
 
-	}
+	// }
 
 	/**
 	 * Hämtar inspelning med den sökta titeln.
@@ -85,9 +94,9 @@ public class Searcher implements SearchOperations{
 	 * @param title Inspelningens titel
 	 * @return ett Recodring-objekt med den sökta inspelningen om den hittades, null annars
 	 */
-	public Recording getRecordingByName(String title){
+	// public Recording getRecordingByName(String title){
 
-	}
+	// }
 
 	/**
 	 * Hämtar en omodifierbar samling med inspelningar från och med det angivna året.
@@ -98,9 +107,9 @@ public class Searcher implements SearchOperations{
 	 * @param year året som sökningen startar från (och inkluderar)
 	 * @return en omodifierbar samling med inspelningar
 	 */
-	public Collection<Recording> getRecordingsAfter(int year){
+	// public Collection<Recording> getRecordingsAfter(int year){
 
-	}
+	// }
 
 	/**
 	 * Hämtar en omodifierbar samling med inspelningar av artisten
@@ -112,9 +121,9 @@ public class Searcher implements SearchOperations{
 	 * @param artist den sökta artisten
 	 * @return ett omodifierbar samling med inspelningar
 	 */
-	public SortedSet<Recording> getRecordingsByArtistOrderedByYearAsc(String artist){
+	// public SortedSet<Recording> getRecordingsByArtistOrderedByYearAsc(String artist){
 
-	}
+	// }
 
 	/**
 	 * Hämtar en omodifierbar samling med inspelningar i genren.
@@ -125,9 +134,9 @@ public class Searcher implements SearchOperations{
 	 * @param genre den sökta genren
 	 * @return ett omodifierbar samling med inspelningar
 	 */
-	public Collection<Recording> getRecordingsByGenre(String genre){
+	// public Collection<Recording> getRecordingsByGenre(String genre){
 
-	}
+	// }
 
 	/**
 	 * Hämtar en omodifierbar samling med inspelningar i genren gjorda
@@ -141,9 +150,9 @@ public class Searcher implements SearchOperations{
 	 * @param yearTo   sista året i intervallet
 	 * @return en omodifierbar samling
 	 */
-	public Collection<Recording> getRecordingsByGenreAndYear(String genre, int yearFrom, int yearTo){
+	// public Collection<Recording> getRecordingsByGenreAndYear(String genre, int yearFrom, int yearTo){
 
-	}
+	// }
 
 	/**
 	 * Tar emot en samling och returnerar en ny samling
@@ -152,10 +161,10 @@ public class Searcher implements SearchOperations{
 	 * @param offered En samling med inspelningar
 	 * @return en omodifierbar samling med de inspelningar som inte redan finns
 	 */
-	public Collection<Recording> offerHasNewRecordings(Collection<Recording> offered){
+	// public Collection<Recording> offerHasNewRecordings(Collection<Recording> offered){
 
-	}
+	// }
 
-}
+// }
 
  
