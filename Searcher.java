@@ -1,4 +1,5 @@
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.SortedSet;
 import java.util.Set;
@@ -24,13 +25,13 @@ public class Searcher implements SearchOperations{
 	public long numberOfArtists(){
 
 		Set<String> unikaArtister = new HashSet<>();
-			for (Recording r: recordings){
+		for (Recording r: recordings){
 				unikaArtister.add(r.getArtist());
 			}
-			long antal = unikaArtister.size();
+		long antal = unikaArtister.size();
 
-			return antal;
-		}
+		return antal;
+	}
 
 
 	/**
@@ -41,8 +42,18 @@ public class Searcher implements SearchOperations{
 	 *
 	 * @return antalet genrer (long)
 	 */
-	//public long numberOfGenres(){
-
+	public long numberOfGenres() {
+		
+		Set<String> unikaGenrer = new HashSet<>();
+		
+		for (Recording r: recordings) {
+			for (String g: r.getGenre()) {
+				unikaGenrer.add(g);
+			}
+		}
+		
+		long antalGenrer = unikaGenrer.size();
+		return antalGenrer;
 	}
 
 	/**
@@ -53,9 +64,20 @@ public class Searcher implements SearchOperations{
 	 *
 	 * @return antalet unika titlar (long)
 	 */
-	//public long numberOfTitles(){
 
-	//}
+	public long numberOfTitles(){
+		
+		Set<String> unikaTitlar = new HashSet<>();
+		
+		for (Recording r: recordings){
+			unikaTitlar.add(r.getTitle());
+		}
+		
+		long antalTitlar = unikaTitlar.size();
+		
+		return antalTitlar;
+
+	}
 
 
 	/**
@@ -68,9 +90,18 @@ public class Searcher implements SearchOperations{
 	 * @param name Artistens namn
 	 * @return true om artisten finns, false om inte
 	 */
-	// public boolean doesArtistExist(String name){
+	public boolean doesArtistExist(String name){
+		
+		for (Recording r: recordings) {
+			if(r.getArtist().equals(name)) {
+				return true;
+			}
+		} 
+		return false;
 
-	// }
+	}
+	
+	//La inte till någon hashset här - tyckte inte det behövdes för att lösa uppgiften?
 
 	/**
 	 * Ger en omodifierbar samling med genrer.
@@ -80,9 +111,19 @@ public class Searcher implements SearchOperations{
 	 *
 	 * @return en omodifierbar samling med genrer
 	 */
-	// public Collection<String> getGenres(){
+	public Collection<String> getGenres(){
+		
+		Collection<String> unikaGenrer = new HashSet<>();
+		
+		for (Recording r: recordings) {
+			for (String g: r.getGenre()) {
+				unikaGenrer.add(g);
+			}
+		}
+		
+		return Collections.unmodifiableCollection(unikaGenrer);
 
-	// }
+	}
 
 	/**
 	 * Hämtar inspelning med den sökta titeln.
@@ -165,6 +206,6 @@ public class Searcher implements SearchOperations{
 
 	// }
 
-// }
+ }
 
  

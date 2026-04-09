@@ -24,10 +24,32 @@ public class Program {
     public static void main(String[] args) {
 
         Searcher sut = new Searcher(new Data().getRecordings());
+        
 
         long antalArtister = sut.numberOfArtists();
 
                 System.out.println(antalArtister);
+                
+        
+        long antalTitlar = sut.numberOfTitles();
+
+                System.out.println(antalTitlar);
+                
+                
+        long antalGenrer = sut.numberOfGenres();
+
+                System.out.println(antalGenrer);
+                
+                
+                
+        boolean shouldBeTrue  = sut.doesArtistExist("John Coltrane");
+
+                System.out.println(shouldBeTrue);
+                
+        
+        Collection<String> genreList  = sut.getGenres();
+
+                System.out.println(genreList);
 
 
 //		long numberOfArtists = sut.numberOfArtists();
