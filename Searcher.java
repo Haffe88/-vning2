@@ -3,6 +3,8 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.SortedSet;
 import java.util.Set;
+import java.util.TreeMap;
+import java.util.SortedMap;
 
 
 public class Searcher implements SearchOperations{
@@ -135,9 +137,13 @@ public class Searcher implements SearchOperations{
 	 * @param title Inspelningens titel
 	 * @return ett Recodring-objekt med den sökta inspelningen om den hittades, null annars
 	 */
-	// public Recording getRecordingByName(String title){
-
-	// }
+	 public Recording getRecordingByName(String title){
+		 for (Recording r: recordings) {
+			 if(r.getTitle().equals(title))
+				 return r;
+		 }
+		 return null;
+	}
 
 	/**
 	 * Hämtar en omodifierbar samling med inspelningar från och med det angivna året.
@@ -148,9 +154,32 @@ public class Searcher implements SearchOperations{
 	 * @param year året som sökningen startar från (och inkluderar)
 	 * @return en omodifierbar samling med inspelningar
 	 */
-	// public Collection<Recording> getRecordingsAfter(int year){
 
-	// }
+	public Collection<Recording> getRecordingsAfter(int year){
+
+		TreeMap <Integer, Set<Recording>> map  = new TreeMap<>();
+
+		//bygger upp mapen utifrån år där andra delen av mapen blir ett set med Recordings på året.
+
+		for (Recording r: recordings){
+			int y = r.getYear();
+
+			map.putIfAbsent(y, new HashSet<>());
+			map.get(y).add(r);
+		}
+
+		// En metod map har för att sortera ut specifika årtal över ett visst årtal.
+
+		SortedMap<Integer,Set<Recording>> tail = map.tailMap(year);
+
+		// Resultatet vill inte ha en map så jag lägger över objekten, utan år, i en hashet.
+
+		Collection<Recording> result = new HashSet<>();
+		for (Set <Recording> set : tail.values()) {
+			result.addAll(set);
+		}
+	return Collections.unmodifiableCollection(result);
+	}
 
 	/**
 	 * Hämtar en omodifierbar samling med inspelningar av artisten

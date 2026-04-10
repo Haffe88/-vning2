@@ -51,6 +51,11 @@ public class Program {
 
                 System.out.println(genreList);
 
+        Recording recordingByNam = sut.getRecordingByName("Sgt. Pepper's Lonely Hearts Club Band");
+        System.out.println(recordingByNam);
+
+        Collection<Recording> inspelningarEfter = sut.getRecordingsAfter(2003);
+        System.out.println(inspelningarEfter);
 
 //		long numberOfArtists = sut.numberOfArtists();
 //		if (numberOfArtists != NUMBER_OF_ARTISTS) {
@@ -82,14 +87,14 @@ public class Program {
 //			throw new AssertionError("getGenres: wrong number of genres.");
 //		}
 
-//		Recording recordingByName = sut.getRecordingByName(EXISTING_TITLE);
-//		if (recordingByName == null) {
-//			throw new AssertionError("getRecordingByName: existing record wasn't found.");
-//		}
+		Recording recordingByName = sut.getRecordingByName(EXISTING_TITLE);
+		if (recordingByName == null) {
+    	throw new AssertionError("getRecordingByName: existing record wasn't found.");
+		}
 
 //		Collection<Recording> recordingsAfter = sut.getRecordingsAfter(2010);
-//		if (recordingsAfter.size() != NUMBER_OF_RECORDINGS_AFTER_2010) {
-//			throw new AssertionError("getRecordingsAfter: wrong number of recordings.");
+//	if (recordingsAfter.size() != NUMBER_OF_RECORDINGS_AFTER_2010) {
+//		throw new AssertionError("getRecordingsAfter: wrong number of recordings.");
 //		}
 
 //		SortedSet<Recording> recordingsByArtistOrderedByYearAsc = sut.getRecordingsByArtistOrderedByYearAsc(EXISTING_ARTIST);
