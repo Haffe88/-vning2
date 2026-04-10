@@ -1,0 +1,47 @@
+[33mcommit 981cb2937b7e57e3852fda3372ee7bfaddb3417a[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Admin <ludvig.hafstrom@gmail.ocm>
+Date:   Fri Apr 10 13:44:41 2026 +0200
+
+    Två metoder till.
+
+[33mcommit 8dc9ae926e2307c9facd0d030f4567c2386dfe90[m
+Author: clockworkmaze7-cyber <clockwork.maze7@gmail.com>
+Date:   Thu Apr 9 17:51:58 2026 +0200
+
+    gjort 4 metoder i Seracher, samt testat dem i programmet
+
+[33mcommit 09ede302d8dbfdb8f8d37cce172edc04ed6e0b06[m
+Author: Admin <ludvig.hafstrom@gmail.ocm>
+Date:   Thu Apr 9 14:36:30 2026 +0200
+
+    remove iml file
+
+[33mcommit 97c58a8ce97637229f06b865f3593141822af984[m
+Author: Admin <ludvig.hafstrom@gmail.ocm>
+Date:   Thu Apr 9 14:35:15 2026 +0200
+
+    remove idea and out folders
+
+[33mcommit c351a4665cffac9af194791c593a26acbb22d747[m
+Author: Admin <ludvig.hafstrom@gmail.ocm>
+Date:   Thu Apr 9 14:30:06 2026 +0200
+
+    Först metod klar (förhoppnigvsvis)
+
+[33mcommit 208a701838d3b7a9198917c4b4b44aece0819588[m
+Author: clockworkmaze7-cyber <clockwork.maze7@gmail.com>
+Date:   Wed Apr 8 14:31:06 2026 +0200
+
+    se ändringar i Searcher
+
+[33mcommit 0db4b72c8c4a1adb82e0cee0ed8551ad5f57a70b[m
+Author: Admin <ludvig.hafstrom@gmail.ocm>
+Date:   Wed Apr 8 13:36:35 2026 +0200
+
+    Clean repo and add gitignore
+
+[33mcommit fc4153729b3dcba738ed7240869ca3ebda3ea4d3[m
+Author: Admin <ludvig.hafstrom@gmail.ocm>
+Date:   Wed Apr 8 13:28:40 2026 +0200
+
+    First commit

@@ -1,8 +1,10 @@
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.SortedSet;
 import java.util.Set;
+import java.util.TreeSet;
 import java.util.TreeMap;
 import java.util.SortedMap;
 
@@ -24,6 +26,7 @@ public class Searcher implements SearchOperations{
 	 *
 	 * @return antalet unika artister (long)
 	 */
+	
 	public long numberOfArtists(){
 
 		Set<String> unikaArtister = new HashSet<>();
@@ -191,9 +194,19 @@ public class Searcher implements SearchOperations{
 	 * @param artist den sökta artisten
 	 * @return ett omodifierbar samling med inspelningar
 	 */
-	// public SortedSet<Recording> getRecordingsByArtistOrderedByYearAsc(String artist){
+	public SortedSet<Recording> getRecordingsByArtistOrderedByYearAsc(String artist){
+		
+		SortedSet<Recording> recordingsByArtistAsc = new TreeSet<>(Comparator.comparingInt(Recording::getYear).thenComparing(Recording::getTitle));
+		
+		for(Recording r : recordings) {
+			if(r.getArtist().equals(artist)) {
+				recordingsByArtistAsc.add(r);
+			}
+		}
+		return Collections.unmodifiableSortedSet(recordingsByArtistAsc);
 
-	// }
+	}
+	//TreeSet behöver Comparator för att kunna jämföra Recording-objekten (då TreeSet och TreeMap inte använder equals-metoden i Recording). 
 
 	/**
 	 * Hämtar en omodifierbar samling med inspelningar i genren.

@@ -50,6 +50,11 @@ public class Program {
         Collection<String> genreList  = sut.getGenres();
 
                 System.out.println(genreList);
+                
+        
+        SortedSet <Recording> records = sut.getRecordingsByArtistOrderedByYearAsc("John Coltrane");
+
+                System.out.println(records);
 
         Recording recordingByNam = sut.getRecordingByName("Sgt. Pepper's Lonely Hearts Club Band");
         System.out.println(recordingByNam);
