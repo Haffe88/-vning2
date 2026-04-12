@@ -217,9 +217,19 @@ public class Searcher implements SearchOperations{
 	 * @param genre den sökta genren
 	 * @return ett omodifierbar samling med inspelningar
 	 */
-	// public Collection<Recording> getRecordingsByGenre(String genre){
+	public Collection<Recording> getRecordingsByGenre(String genre){
 
-	// }
+		Set<Recording> inspelningarIGenre = new HashSet<>();
+
+		for ( Recording r: recordings) {
+				for (String g: r.getGenre()) {
+					if (g.equals(genre)){
+						inspelningarIGenre.add(r);
+					}
+				}
+			}
+		return Collections.unmodifiableCollection(inspelningarIGenre);
+	}
 
 	/**
 	 * Hämtar en omodifierbar samling med inspelningar i genren gjorda
@@ -233,9 +243,29 @@ public class Searcher implements SearchOperations{
 	 * @param yearTo   sista året i intervallet
 	 * @return en omodifierbar samling
 	 */
-	// public Collection<Recording> getRecordingsByGenreAndYear(String genre, int yearFrom, int yearTo){
+	public Collection<Recording> getRecordingsByGenreAndYear(String genre, int yearFrom, int yearTo){
 
-	// }
+		// I första delen av metoden använder jag en metod som redan finns. Den precis över. Sen hade i princip
+		// getRecordingsAfter gått att använda också men bara till hälften så det blir lite rörigt som koden är nu.
+
+		Collection<Recording> recordingsByGenre = getRecordingsByGenre(genre);
+
+		TreeMap <Integer, Set<Recording>> map  = new TreeMap<>();
+		for (Recording r: recordingsByGenre){
+			int y = r.getYear();
+
+			map.putIfAbsent(y, new HashSet<>());
+			map.get(y).add(r);
+		}
+		SortedMap<Integer,Set<Recording>> tail = map.subMap(yearFrom, yearTo +1);
+
+		Collection<Recording> result = new HashSet<>();
+		for (Set <Recording> set : tail.values()) {
+			result.addAll(set);
+		}
+		return Collections.unmodifiableCollection(result);
+
+	}
 
 	/**
 	 * Tar emot en samling och returnerar en ny samling
@@ -244,9 +274,17 @@ public class Searcher implements SearchOperations{
 	 * @param offered En samling med inspelningar
 	 * @return en omodifierbar samling med de inspelningar som inte redan finns
 	 */
-	// public Collection<Recording> offerHasNewRecordings(Collection<Recording> offered){
+	public Collection<Recording> offerHasNewRecordings(Collection<Recording> offered){
 
-	// }
+		Collection <Recording> result = new HashSet <>();
+
+		for (Recording r: offered){
+			if (!recordings.contains(r)){
+				result.add(r);
+			}
+		}
+		return Collections.unmodifiableCollection(result);
+	 }
 
  }
 

@@ -26,7 +26,7 @@ public class Program {
         Searcher sut = new Searcher(new Data().getRecordings());
         
 
-        long antalArtister = sut.numberOfArtists();
+      /*  long antalArtister = sut.numberOfArtists();
 
                 System.out.println(antalArtister);
                 
@@ -61,66 +61,69 @@ public class Program {
 
         Collection<Recording> inspelningarEfter = sut.getRecordingsAfter(2003);
         System.out.println(inspelningarEfter);
+*/
 
-//		long numberOfArtists = sut.numberOfArtists();
-//		if (numberOfArtists != NUMBER_OF_ARTISTS) {
-//			throw new AssertionError("numberOfArtists: wrong number of artists.");
-//		}
 
-//		long numberOfGenres = sut.numberOfGenres();
-//		if (numberOfGenres != NUMBER_OF_GENRES) {
-//			throw new AssertionError("numberOfGenres: wrong number of genres.");
-//		}
 
-//		long numberOfTitles = sut.numberOfTitles();
-//		if (numberOfTitles != NUMBER_OF_RECORDINGS) {
-//			throw new AssertionError("numberOfTitles: wrong number of titles.");
-//		}
+		long numberOfArtists = sut.numberOfArtists();
+		if (numberOfArtists != NUMBER_OF_ARTISTS) {
+			throw new AssertionError("numberOfArtists: wrong number of artists.");
+		}
 
-//		Collection<Recording> existingGenre = sut.getRecordingsByGenre(EXISTING_GENRE);
-//		if (existingGenre.size() != NUMBER_OF_JAZZ_RECORDINGS) {
-//			throw new AssertionError("getRecordingsByGenre: wrong number of recordings.");
-//		}
+		long numberOfGenres = sut.numberOfGenres();
+		if (numberOfGenres != NUMBER_OF_GENRES) {
+			throw new AssertionError("numberOfGenres: wrong number of genres.");
+		}
 
-//		boolean shouldBeTrue = sut.doesArtistExist(EXISTING_ARTIST);
-//		if (!shouldBeTrue) {
-//			throw new AssertionError("doesArtistExist: didn't find an existing artist.");
-//		}
+		long numberOfTitles = sut.numberOfTitles();
+		if (numberOfTitles != NUMBER_OF_RECORDINGS) {
+			throw new AssertionError("numberOfTitles: wrong number of titles.");
+		}
 
-//		Collection<String> genres = sut.getGenres();
-//		if (genres.size() != NUMBER_OF_GENRES) {
-//			throw new AssertionError("getGenres: wrong number of genres.");
-//		}
+		Collection<Recording> existingGenre = sut.getRecordingsByGenre(EXISTING_GENRE);
+		if (existingGenre.size() != NUMBER_OF_JAZZ_RECORDINGS) {
+			throw new AssertionError("getRecordingsByGenre: wrong number of recordings.");
+		}
+
+		boolean shouldBeTrue = sut.doesArtistExist(EXISTING_ARTIST);
+		if (!shouldBeTrue) {
+			throw new AssertionError("doesArtistExist: didn't find an existing artist.");
+		}
+
+		Collection<String> genres = sut.getGenres();
+		if (genres.size() != NUMBER_OF_GENRES) {
+			throw new AssertionError("getGenres: wrong number of genres.");
+		}
 
 		Recording recordingByName = sut.getRecordingByName(EXISTING_TITLE);
 		if (recordingByName == null) {
     	throw new AssertionError("getRecordingByName: existing record wasn't found.");
 		}
 
-//		Collection<Recording> recordingsAfter = sut.getRecordingsAfter(2010);
-//	if (recordingsAfter.size() != NUMBER_OF_RECORDINGS_AFTER_2010) {
-//		throw new AssertionError("getRecordingsAfter: wrong number of recordings.");
-//		}
+		Collection<Recording> recordingsAfter = sut.getRecordingsAfter(2010);
+	if (recordingsAfter.size() != NUMBER_OF_RECORDINGS_AFTER_2010) {
+		throw new AssertionError("getRecordingsAfter: wrong number of recordings.");
+		}
 
-//		SortedSet<Recording> recordingsByArtistOrderedByYearAsc = sut.getRecordingsByArtistOrderedByYearAsc(EXISTING_ARTIST);
-//		if (recordingsByArtistOrderedByYearAsc.size() != NUMBER_OF_RECORDINGS_BY_COLTRANE) {
-//			throw new AssertionError("getRecordingsByArtistOrderedByYearAsc: wrong number of recordings.");
-//		}
+		SortedSet<Recording> recordingsByArtistOrderedByYearAsc = sut.getRecordingsByArtistOrderedByYearAsc(EXISTING_ARTIST);
+		if (recordingsByArtistOrderedByYearAsc.size() != NUMBER_OF_RECORDINGS_BY_COLTRANE) {
+			throw new AssertionError("getRecordingsByArtistOrderedByYearAsc: wrong number of recordings.");
+		}
 
-//		Collection<Recording> recordingsByGenre = sut.getRecordingsByGenre(EXISTING_GENRE);
-//		if (recordingsByGenre.size() != NUMBER_OF_JAZZ_RECORDINGS) {
-//			throw new AssertionError("getRecordingsByGenre: wrong number of recordings.");
-//		}
+		Collection<Recording> recordingsByGenre = sut.getRecordingsByGenre(EXISTING_GENRE);
+		if (recordingsByGenre.size() != NUMBER_OF_JAZZ_RECORDINGS) {
+			throw new AssertionError("getRecordingsByGenre: wrong number of recordings.");
+		}
 
-//		Collection<Recording> recordingsByGenreAndYear = sut.getRecordingsByGenreAndYear(EXISTING_GENRE, 1960, 1970);
-//		if (recordingsByGenreAndYear.size() != NUMBER_OF_JAZZ_RECORDINGS_BETWEEN_1960_AND_1970) {
-//			throw new AssertionError("getRecordingsByGenreAndYear: wrong number of recordings.");
-//		}
+		Collection<Recording> recordingsByGenreAndYear = sut.getRecordingsByGenreAndYear(EXISTING_GENRE, 1960, 1970);
+		if (recordingsByGenreAndYear.size() != NUMBER_OF_JAZZ_RECORDINGS_BETWEEN_1960_AND_1970) {
+			throw new AssertionError("getRecordingsByGenreAndYear: wrong number of recordings.");
+		}
 
-//		Collection<Recording> newRecordings = sut.offerHasNewRecordings(OFFERED_RECORDINGS);
-//		if (newRecordings.size() != NUMBER_OF_NEW_RECORDINGS_IN_OFFER) {
-//			throw new AssertionError("offerHasNewRecordings: wrong number of recordings.");
-//		}
+		Collection<Recording> newRecordings = sut.offerHasNewRecordings(OFFERED_RECORDINGS);
+		if (newRecordings.size() != NUMBER_OF_NEW_RECORDINGS_IN_OFFER) {
+			throw new AssertionError("offerHasNewRecordings: wrong number of recordings.");
+		}
 
 //		Collection<Recording> optionalGetRecordingsBefore = sut.optionalGetRecordingsBefore(1960);
 //		if (optionalGetRecordingsBefore != null) {
